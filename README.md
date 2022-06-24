@@ -44,4 +44,4 @@ xx|`NULL`
 ### Usage
 `php composer.phar install`
 
-`./vendor/bin/phpunit tests/LongestPalindromeFinderTest.php`
+`php vendor/bin/phpunit tests
