@@ -4,7 +4,7 @@ namespace App;
 
 class Palindrome
 {
-    public function findOrReturnNull($str): ?string {
+    public function findOrReturnNull(string $str): ?string {
 
         $minLength = 3;
 
@@ -39,7 +39,7 @@ class Palindrome
         });
     }
 
-    protected function getPalindromes($str, $endPos): array
+    protected function getPalindromes(string $str, int $endPos): array
     {
         $palindromes = [];
 
@@ -60,12 +60,12 @@ class Palindrome
     }
 
 
-    protected function filterNonAlphaNumericChars($str): ?string
+    protected function filterNonAlphaNumericChars(string $str): ?string
     {
         return preg_replace("/[^A-Za-z0-9]/", "", $str);
     }
 
-    protected function convertToLowercase($str): ?string
+    protected function convertToLowercase(string $str): ?string
     {
         return strtolower($str);
     }
