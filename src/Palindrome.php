@@ -4,44 +4,69 @@ namespace App;
 
 class Palindrome
 {
-    public function findOrFail($str) {
+    public function findOrReturnNull($str): ?string {
 
-        $str = strtolower($this->sanitize($str));
-        if(strlen($str) < 3) return null;
-        if($str === strrev($str)) return $str;
+        $minLength = 3;
 
-        $startPos = 0;
-        $endPos = strlen($str) - 1;
+        $str = $this->filterNonAlphaNumericChars($str);
+        $str = $this->convertToLowercase($str);
 
-        $matches = [];
+        $palindromes = $this->getPalindromes($str, strlen($str));
+        $palindromes = $this->filterByLength($palindromes, $minLength);
+
+        if(!empty($palindromes))
+        {
+            $longest = $this->findLargest($palindromes);
+            return reset($longest);
+        }
+
+        return null;
+    }
+
+    protected function findLargest(array $array): array
+    {
+        usort($array, function($a, $b) {
+            return strlen($b) - strlen($a);
+        });
+
+        return $array;
+    }
+
+    protected function filterByLength(array $array, int $minLength): array
+    {
+        return array_filter($array, function($idx) use ($minLength) {
+           return strlen($idx) >= $minLength;
+        });
+    }
+
+    protected function getPalindromes($str, $endPos): array
+    {
+        $palindromes = [];
 
         for($start = 0; $start <= $endPos; $start++)
         {
-            for($end = $endPos; $end >= $start; $end--)
+            for($end = ($endPos-$start); $end >= $start; $end--)
             {
                 $subStr = substr($str, $start, $end);
 
                 if($subStr === strrev($subStr))
                 {
-                    $matches[] = $subStr;
+                    $palindromes[] = $subStr;
                 }
             }
         }
 
-        $matches = array_filter($matches, function($x) {
-           return strlen($x) > 2;
-        });
-
-        usort($matches, function($a, $b) {
-            return strlen($b) - strlen($a);
-        });
-
-        if(!empty($matches)) return $matches[0];
-
-        return null;
+        return $palindromes;
     }
 
-    public function sanitize($str) {
-        return str_replace([' ', '.', ',', '?', '!'], "", $str);
+
+    protected function filterNonAlphaNumericChars($str): ?string
+    {
+        return preg_replace("/[^A-Za-z0-9]/", "", $str);
+    }
+
+    protected function convertToLowercase($str): ?string
+    {
+        return strtolower($str);
     }
 }

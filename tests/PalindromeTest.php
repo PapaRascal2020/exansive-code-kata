@@ -12,7 +12,7 @@ class PalindromeTest extends TestCase
     public function is_tests_for_longest_palindrome($str, $expected)
     {
         $palindrome = new App\Palindrome();
-        $this->assertSame($expected, $palindrome->findOrFail($str));
+        $this->assertSame($expected, $palindrome->findOrReturnNull($str));
     }
 
     public function cases()
