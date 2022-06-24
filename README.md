@@ -41,7 +41,5 @@ xx|`NULL`
 .....<u>x</u> , <u>1</u> ?! <u>x</u>......|x1x
 <u>aaa</u> <u>bbb</u> <u>ccc</u>|aaa
 
-### Usage
-`php composer.phar install`
-
-`php vendor/bin/phpunit tests
+### Run tests from within the directory.
+php vendor/bin/phpunit tests
