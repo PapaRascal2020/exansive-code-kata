@@ -1,4 +1,3 @@
-# Expansive FM - Technical Task 
 ## Find the longest palindrome in a string
 
 A palindrome is a word, verse, sentence, or number which reads the same backward as it
