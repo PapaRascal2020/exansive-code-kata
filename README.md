@@ -3,14 +3,11 @@
 A palindrome is a word, verse, sentence, or number which reads the same backward as it
 does forward.
 
-The candidate should create a solution that, when given a string input, returns the longest
-palindrome findable within that string.
-
 * Only find palindromes of at least 3 characters in length
 * If no palindromes are found, return `NULL`
 * If multiple palindromes are found of the same length, return the first found
 
-### For this scenario, the candidate can:
+### For this scenario, we can:
 * Ignore any white-space characters in the string 
   * White-space characters do not need retaining for the output
 * Ignore casing in the string
@@ -20,14 +17,6 @@ palindrome findable within that string.
   * Non-alphanumeric characters do not need retaining for the output
 * Refer to chosen language documentation
 
-### For this scenario the candidate should:
-* **Demonstrate their solution through unit tests**
-* Talk openly about their approach
-* Start simple and work their way up to a more thorough solution
-
-### Expected outputs:
-_The candidate can demonstrate all of the following input / expected output pairings through the use of
-unit tests_
 
 Input (palindromes underlined) | Expected Output
 --- | ---
