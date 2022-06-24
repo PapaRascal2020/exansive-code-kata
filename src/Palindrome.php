@@ -45,11 +45,11 @@ class Palindrome
 
         for($start = 0; $start <= $endPos; $start++)
         {
-            for($end = ($endPos-$start); $end >= $start; $end--)
+            for($end = $endPos; $end >= $start; $end--)
             {
                 $subStr = substr($str, $start, $end);
 
-                if($subStr === strrev($subStr))
+                if($subStr === strrev($subStr) && !in_array($subStr, $palindromes))
                 {
                     $palindromes[] = $subStr;
                 }

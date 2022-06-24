@@ -25,7 +25,12 @@ class PalindromeTest extends TestCase
             ['xx', null],
             ['xxx', 'xxx'],
             ['.....x , 1 ?! x......', 'x1x'],
-            ['aaa bbb ccc', 'aaa']
+            ['aaa bbb ccc', 'aaa'],
+            ['aaa b!..cbcb ccc', 'bcbcb'],
+            ['01234!..??**3210', '012343210'],
+            ['-1-2-3-4-3-2-1', '1234321'],
+            ['gfst177!!redivideracabccb', 'redivider'],
+            ['sdaadrotor776!!deified;;', 'deified']
         ];
     }
 
